@@ -30,7 +30,7 @@ async function main() {
   // b. Method 2
   const titleElement = await page.$('.blog-hero h1');
   const titleText2 = await page.evaluate((el) => el.innerText, titleElement);
-
+  
   // c. Method 3
   const titleText3 = await page.$eval('.blog-hero h1', (el) => el.innerText);
 
@@ -41,7 +41,7 @@ async function main() {
   // get products information
   const productsResult = await page.$$eval('.thumbnail', (elements) => {
     const result = elements.map((el) => {
-      const name = el.querySelector('.title').innerText;
+      const name = el.querySelector('.title').getAttribute("title")
       const description = el.querySelector('.description').innerText;
       const price = el.querySelector('.pull-right').innerText;
       const reviewCnt = el.querySelector('.ratings .pull-right').innerText;

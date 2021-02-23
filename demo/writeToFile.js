@@ -1,13 +1,9 @@
-const fs = require('fs')
+const fs = require('fs');
 
-function writeToFile (filename, content ) {
-  fs.writeFile(filename, JSON.stringify(content), function (err,data) {
-    if (err) {
-      return console.log(err);
-    }
-  });
+function writeToFile(filename, content) {
+  fs.writeFileSync(filename, JSON.stringify(content));
 }
 
 module.exports = {
-  writeToFile
-}
+  writeToFile,
+};
